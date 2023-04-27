@@ -36,7 +36,7 @@ const Contact = () => {
                 opacity: 0
             })
         }
-    }, [inView])
+    }, [inView, animation])
 
     const service: string= process.env.SERVICE_ID!;
     const templateId: string = process.env.TEMPLATE_ID!;

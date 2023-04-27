@@ -22,10 +22,7 @@ const Skills = () => {
                 opacity: 0
             })
         }
-    }, [inView])
-
-
-
+    }, [inView, animation])
 
     return (
         <motion.div className='w-full flex flex-col mb-36 mt-36' ref={ref}>
