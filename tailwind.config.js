@@ -4,9 +4,15 @@ module.exports = {
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
+    "./node_modules/tw-elements/dist/js/**/*.js"
   ],
+  darkMode: 'class',
   theme: {
-    extend: {
+    extend: { 
+      colors: {
+        'color1' : '#003456',
+        'color2' : '#00C6AC'
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
@@ -14,5 +20,9 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("daisyui"), require("tw-elements/dist/plugin.cjs")],
+  daisyui: {
+    base: false,
+    darkTheme: "light",
+  }
 }
