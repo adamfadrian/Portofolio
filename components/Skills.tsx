@@ -25,7 +25,7 @@ const Skills = () => {
     }, [inView, animation])
 
     return (
-        <motion.div className='w-full flex flex-col mb-36 mt-36' ref={ref}>
+        <motion.div className='w-full flex flex-col mb-36 mt-36 p-5' ref={ref}>
             <motion.h1
                 animate={animation}
                 whileHover={{

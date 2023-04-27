@@ -36,7 +36,7 @@ const About = () => {
     }
 
     return (
-        <motion.div className='flex justify-center p-20 2xl:mb-20 ' id='About'>
+        <motion.div className='flex justify-center p-10 2xl:mb-20 ' id='About'>
             <motion.div
                 initial="hidden"
                 whileInView="show"
@@ -58,7 +58,7 @@ const About = () => {
 
                     }}
                     variants={FADE_DOWN_ANIMATION_VARIANTS}
-                    className='text-center 2xl:text-5xl text-black font-bold dark:text-white'>Adam Fadrian</motion.h1>
+                    className='text-center 2xl:text-5xl text-3xl text-black font-bold dark:text-white'>Adam Fadrian</motion.h1>
                 <motion.h1
                     variants={FADE_DOWN_ANIMATION_VARIANTS}
                     className='text-center 2xl:text-3xl text-black font-bold dark:text-white'>Frontend Engineer</motion.h1>
@@ -68,7 +68,7 @@ const About = () => {
                     whileHover={{
                         scale: 1.2
                     }}
-                    className="btn btn-md w-52 mx-auto bg-color1 hover:bg-color1 dark:bg-gradient-to-r dark:from-cyan-400 dark:to-blue-400 border-none "
+                    className="btn btn-md w-52 mx-auto bg-blue-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-gradient-to-r dark:from-cyan-400 dark:to-blue-400 border-none "
                 >
                     <h1 className="dark:text-white text-lg flex items-center gap-2 ">
                         <span className="inline-block">
@@ -85,7 +85,7 @@ const About = () => {
                     </h1>
                 </motion.button>
                 <motion.div
-                    className='mt-10 flex flex-col dark:text-white'>
+                    className=' flex flex-col dark:text-white'>
                     <motion.div
                         drag
                         whileDrag={{ scale: 2 }}
@@ -106,11 +106,11 @@ const About = () => {
                         className='text-4xl font-semibold mx-auto mt-5 text-black dark:text-white'> About Me</motion.h1>
                     <motion.p
                         whileHover={{
-                            scale: 1.4,
+                            scale: 1.2,
                             transition: { duration: 0.4 },
                         }}
                         variants={FADE_DOWN_ANIMATION_VARIANTS}
-                        className='mt-5 mx-auto p-2 hover:scale-110 hover:cursor-pointer hover:mt-10 2xl:text-2xl text-lg text-black dark:text-white '>I began learning HTML and JavaScript on my own through FreeCodeCamp in 2019. However,
+                        className='mt-5 mx-auto p-2 hover:cursor-pointer hover:mt-10 2xl:text-xl text-lg text-black dark:text-white '>I began learning HTML and JavaScript on my own through FreeCodeCamp in 2019. However,
                         I faced many obstacles along the way and found myself getting stuck frequently. Despite these
                         challenges, I continued to learn through self-teaching and practice until I joined Alterra
                         Academy&apos;s bootcamp. where I learned React and TypeScript in addition to HTML and

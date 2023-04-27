@@ -38,9 +38,9 @@ const Contact = () => {
         }
     }, [inView, animation])
 
-    const service: string= process.env.SERVICE_ID!;
+    const service: string = process.env.SERVICE_ID!;
     const templateId: string = process.env.TEMPLATE_ID!;
-    const publicKey:string = process.env.PUBLIC_KEY!;
+    const publicKey: string = process.env.PUBLIC_KEY!;
 
     const sendEmail = (e: any) => {
         e.preventDefault();
@@ -83,7 +83,7 @@ const Contact = () => {
         <>
             <ToastContainer
             />
-            <motion.div className='flex flex-col mt-20'
+            <motion.div className='flex flex-col mt-20 p-5'
                 id='Contacts'>
                 <motion.div className='flex flex-col items-center'
                     ref={ref}
@@ -92,7 +92,7 @@ const Contact = () => {
                         animate={animation}
                     >C O N T A C T </motion.h1>
                     <motion.div className='flex flex-col justify-center items-center gap-3 mb-10 dark:text-white'>
-                        <motion.h1 className='text-xl font-semibold'
+                        <motion.h1 className='text-xl font-semibold text-center'
                             animate={animation}
                         >I have got just what you need. Lets Talk.</motion.h1>
                         <motion.h1 className='flex text-center items-center gap-3 font-medium text-lg '
@@ -120,7 +120,7 @@ const Contact = () => {
                                 <label className='ml-2 font-semibold text-lg text-black dark:text-white'>Message</label>
                                 <textarea className="textarea textarea-bordered textarea-lg w-full " name="message" defaultValue='' placeholder='hello adam, ...' />
                             </motion.div>
-                            <button type="submit" value="Send" className='btn bg-color1 dark:bg-gradient-to-r dark:from-blue-400 dark:to-cyan-300 mx-auto text-white border-none btn-wide text-lg gap-2 mb-5 hover:border-none hover:bg-gradient-to-r hover:from-blue-400 hover:to-cyan-300 hover:scale-110'>Send <BsSend /></button>
+                            <button type="submit" value="Send" className='btn bg-blue-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-500 dark:focus:ring-blue-800 dark:bg-gradient-to-r dark:from-cyan-400 dark:to-blue-400 mx-auto text-white border-none btn-wide text-lg gap-2 mb-5 hover:border-none  hover:scale-110'>Send <BsSend /></button>
                         </form>
                     </motion.div>
                 </motion.div>

@@ -29,23 +29,26 @@ const Projects = () => {
 
 
     return (
-        <motion.div className='flex flex-col mb-36' id='Projects'>
+        <motion.div className='flex flex-col mb-36 p-5' id='Projects' ref={ref}>
             <motion.div className='flex w-full justify-center items-center mb-10' >
                 <motion.h1
                     whileHover={{
                         scale: 1.2,
                         transition: { duration: 1, ease: 'easeOut' },
                     }}
+                    animate={animation}
                     className='font-semibold text-4xl  dark:text-white text-black'>My Projects</motion.h1>
             </motion.div>
             <motion.div className='flex w-full'>
                 <motion.div
-                    ref={ref}
-                    className='grid 2xl:grid-cols-4 md:grid-cols-2 gap-20 mx-auto' >
+                    className='grid 2xl:grid-cols-4 md:grid-cols-2 gap-10 mx-auto' >
                     {
                         data.map((item: any, i: number) => {
                             return (
                                 <motion.div
+                                    whileHover={{
+                                        scale: 1.1
+                                    }}
                                     animate={animation}
                                     className=" max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-500 2xl:mb-20 p-5" key={i}>
                                     <motion.a href="#">
@@ -58,7 +61,16 @@ const Projects = () => {
                                             <motion.h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{item.name}</motion.h5>
                                         </motion.a>
                                         <motion.p
-                                            className="mb-3 font-normal text-gray-700 dark:text-gray-400">{item.description}
+                                            className="mb-3 font-normal text-gray-700 dark:text-gray-400"
+                                            style={{
+                                                height: '9rem',
+                                                lineHeight: '1.5rem',
+                                                overflow: 'hidden',
+                                                display: '-webkit-box',
+                                                WebkitLineClamp: '6',
+                                                WebkitBoxOrient: 'vertical'
+                                            }}>
+                                            {item.description}
                                         </motion.p>
                                         <motion.div className='flex mt-5 justify-evenly'>
                                             <motion.a href={item.github} target='_blank' className="inline-flex gap-2 items-center px-3 py-2 text-sm font-medium text-center text-white hover:scale-110 bg-blue-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-500 dark:focus:ring-blue-800">
