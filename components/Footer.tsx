@@ -6,7 +6,7 @@ const Footer = () => {
     return (
         <div>
             {/* <!--Footer container--> */}
-            <footer className="footer footer-center mt-36 p-10 bg-base-200 dark:border-t-2 text-base-content rounded dark:bg-gradient-to-b dark:from-gray-800 dark:to-gray-800 bg-gradient-to-r from-blue-400 to-cyan-300">
+            <footer className="footer footer-center mt-36 p-10 bg-base-200 dark:border-t-2 text-base-content rounded dark:bg-gradient-to-b dark:from-gray-800 dark:to-gray-800 bg-gradient-to-r from-cyan-300 to-blue-400">
                 <div>
                     <div className="grid grid-flow-col gap-10 dark:text-white">
                         <Link href={'https://www.instagram.com/adamfadrian/'} className='hover:scale-125' >
