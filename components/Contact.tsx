@@ -38,19 +38,19 @@ const Contact = () => {
         }
     }, [inView, animation])
 
-    const service: string = process.env.SERVICE_ID!;
-    const templateId: string = process.env.TEMPLATE_ID!;
-    const publicKey: string = process.env.PUBLIC_KEY!;
+    // const service: string = process.env.SERVICE_ID!;
+    // const templateId: string = process.env.TEMPLATE_ID!;
+    // const publicKey: string = process.env.PUBLIC_KEY!;
 
-    console.log('test publickey', publicKey)
-    console.log('test templateID', templateId)
-    console.log('test service', service)
+    // console.log('test publickey', publicKey)
+    // console.log('test templateID', templateId)
+    // console.log('test service', service)
 
 
     const sendEmail = (e: any) => {
         e.preventDefault();
 
-        emailjs.sendForm(service, templateId, form.current, publicKey)
+        emailjs.sendForm( process.env.SERVICE_ID!, process.env.TEMPLATE_ID!, form.current, process.env.PUBLIC_KEY!)
             .then((result) => {
                 console.log(result.text);
                 if (result) {
