@@ -9,13 +9,13 @@ const Footer = () => {
             <footer className="footer footer-center mt-36 p-10 bg-base-200 dark:border-t-2 text-base-content rounded dark:bg-gradient-to-b dark:from-gray-800 dark:to-gray-800 bg-gradient-to-r from-cyan-300 to-blue-400">
                 <div>
                     <div className="grid grid-flow-col gap-10 dark:text-white">
-                        <Link href={'https://www.instagram.com/adamfadrian/'} className='hover:scale-125' >
+                        <Link target='_blank' href={'https://www.instagram.com/adamfadrian/'} className='hover:scale-125' >
                             <BsInstagram size={30} />
                         </Link>
-                        <Link href={'https://www.linkedin.com/in/adam-fadrian-311000227/'} className='hover:scale-125'>
+                        <Link target='_blank' href={'https://www.linkedin.com/in/adam-fadrian-311000227/'} className='hover:scale-125'>
                             <BsLinkedin size={30} />
                         </Link>
-                        <Link href={'https://github.com/adamfadrian/'} className='hover:scale-125'>
+                        <Link target='_blank' href={'https://github.com/adamfadrian/'} className='hover:scale-125'>
                             <BsGithub size={30} />
                         </Link>
                     </div>
