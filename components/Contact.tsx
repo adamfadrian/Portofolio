@@ -40,10 +40,9 @@ const Contact = () => {
         }
     }, [inView, animation])
 
-    const service: string = process.env.SERVICE_ID!;
-    const templateId: string = process.env.TEMPLATE_ID!;
-    const publicKey: string = process.env.PUBLIC_KEY!;
-
+    const service: string = process.env.NEXT_PUBLIC_SERVICE_ID!;
+    const templateId: string = process.env.NEXT_PUBLIC_TEMPLATE_ID!;
+    const publicKey: string = process.env.NEXT_PUBLIC_PUBLIC_KEY!;
 
 
     const sendEmail = (e: any) => {
