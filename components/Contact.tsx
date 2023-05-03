@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import emailjs from '@emailjs/browser';
 import { BsSend } from 'react-icons/bs'
 import { ToastContainer, toast } from 'react-toastify';
@@ -8,6 +8,7 @@ import { FaPhoneAlt } from 'react-icons/fa'
 import { ImLocation2 } from 'react-icons/im'
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import Loading from './Loading';
 
 export const FADE_UP_ANIMATION_VARIANTS = {
     hidden: { opacity: 0, y: 10 },
@@ -15,6 +16,7 @@ export const FADE_UP_ANIMATION_VARIANTS = {
 };
 
 const Contact = () => {
+    const [loading, setLoading] = useState<boolean>(false)
     const { ref, inView } = useInView()
     const animation = useAnimation()
     const form: any = useRef();
@@ -42,12 +44,12 @@ const Contact = () => {
     const templateId: string = process.env.TEMPLATE_ID!;
     const publicKey: string = process.env.PUBLIC_KEY!;
 
-  
+
 
     const sendEmail = (e: any) => {
         e.preventDefault();
-
-        emailjs.sendForm( service, templateId, form.current, publicKey)
+        setLoading(true)
+        emailjs.sendForm('service_ouu6epp', 'template_dyjwufw', form.current, '_4QyZhokg4sCGjm8m')
             .then((result) => {
                 console.log(result.text);
                 if (result) {
@@ -62,6 +64,7 @@ const Contact = () => {
                         theme: "colored",
                     })
                 }
+                setLoading(false)
                 form.current.reset()
                 document.querySelectorAll('input').forEach(input => (input.value = ''));
                 document.querySelectorAll('textarea').forEach(textarea => (textarea.value = ''));
@@ -81,6 +84,7 @@ const Contact = () => {
                 console.log(error.text);
             });
     };
+
     return (
         <>
             <ToastContainer
@@ -112,17 +116,24 @@ const Contact = () => {
                             <motion.h1 className='flex mx-auto text-2xl dark:text-white font-semibold mb-10'>Contact Form</motion.h1>
                             <motion.div>
                                 <label className='ml-2 font-semibold text-lg text-black dark:text-white'>Your Name</label>
-                                <input className='input input-bordered input-success w-full max-w-xl ' type="text" name="user_name" defaultValue='' placeholder='adam fadrian' />
+                                <input className='input input-bordered input-success w-full max-w-xl ' required type="text" name="user_name" defaultValue='' placeholder='adam fadrian' />
                             </motion.div>
                             <motion.div>
                                 <label className='ml-2 font-semibold text-lg text-black dark:text-white'>Your Email</label>
-                                <input className='input input-bordered input-success w-full max-w-xl ' type="email" name="user_email" defaultValue='' placeholder='example@gmail.com' />
+                                <input className='input input-bordered input-success w-full max-w-xl ' required type="email" name="user_email" defaultValue='' placeholder='example@gmail.com' />
                             </motion.div>
                             <motion.div className='flex flex-col'>
                                 <label className='ml-2 font-semibold text-lg text-black dark:text-white'>Message</label>
-                                <textarea className="textarea textarea-bordered textarea-lg w-full " name="message" defaultValue='' placeholder='hello adam, ...' />
+                                <textarea className="textarea textarea-bordered textarea-lg w-full textarea-accent" required name="message" defaultValue='' placeholder='hello adam, ...' />
                             </motion.div>
-                            <button type="submit" value="Send" className='btn bg-blue-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-500 dark:focus:ring-blue-800 dark:bg-gradient-to-r dark:from-cyan-400 dark:to-blue-400 mx-auto text-white border-none btn-wide text-lg gap-2 mb-5 hover:border-none  hover:scale-110'>Send <BsSend /></button>
+                            <button
+                                disabled={loading}
+                                type="submit"
+                                value="Send"
+                                className='btn bg-blue-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-500 dark:focus:ring-blue-800 dark:bg-gradient-to-r dark:from-cyan-400 dark:to-blue-400 mx-auto text-white border-none btn-wide text-lg gap-2 mb-5 hover:border-none  hover:scale-110'>
+                                {loading && <Loading/>}
+                                Send <BsSend />
+                            </button>
                         </form>
                     </motion.div>
                 </motion.div>

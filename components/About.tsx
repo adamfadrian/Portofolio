@@ -66,7 +66,7 @@ const About = () => {
                     onClick={() => downloadResume(RESUME_FILE_PDF)}
                     variants={FADE_DOWN_ANIMATION_VARIANTS}
                     whileHover={{
-                        scale: 1.2
+                        scale: 1.1
                     }}
                     className="btn btn-md w-52 mx-auto bg-blue-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-gradient-to-r dark:from-cyan-400 dark:to-blue-400 border-none "
                 >
