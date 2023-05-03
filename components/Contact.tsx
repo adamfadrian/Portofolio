@@ -49,7 +49,7 @@ const Contact = () => {
     const sendEmail = (e: any) => {
         e.preventDefault();
         setLoading(true)
-        emailjs.sendForm('service_ouu6epp', 'template_dyjwufw', form.current, '_4QyZhokg4sCGjm8m')
+        emailjs.sendForm(service, templateId, form.current, publicKey)
             .then((result) => {
                 console.log(result.text);
                 if (result) {
