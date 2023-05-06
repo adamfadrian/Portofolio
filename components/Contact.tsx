@@ -45,7 +45,7 @@ const Contact = () => {
     const publicKey: string = process.env.NEXT_PUBLIC_PUBLIC_KEY!;
 
 
-    const sendEmail = (e: any) => {
+    const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setLoading(true)
         emailjs.sendForm(service, templateId, form.current, publicKey)
@@ -130,7 +130,7 @@ const Contact = () => {
                                 type="submit"
                                 value="Send"
                                 className='btn bg-blue-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-500 dark:focus:ring-blue-800 dark:bg-gradient-to-r dark:from-cyan-400 dark:to-blue-400 mx-auto text-white border-none btn-wide text-lg gap-2 mb-5 hover:border-none  hover:scale-110'>
-                                {loading && <Loading/>}
+                                {loading && <Loading />}
                                 Send <BsSend />
                             </button>
                         </form>

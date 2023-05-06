@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion'
-import React from 'react'
+import React, { useState } from 'react'
 import davekoz from '@/public/portologo.png'
 import Image from 'next/image'
 import { TbDownload } from 'react-icons/tb'
+import Modal from './Modal'
 
 export const FADE_DOWN_ANIMATION_VARIANTS = {
     hidden: { opacity: 0, y: -10 },
@@ -21,9 +22,17 @@ const BOUNCING_ANIMATION_VARIANTS = {
         },
     },
 };
-const RESUME_FILE_PDF = 'http://localhost:3000/Resume.pdf'
-
+const RESUME_FILE_PDF = 'http://localhost:3000/ATS.pdf'
+const RESUM_CREATIVE_PDF = 'http://localhost:3000/CREATIVE.pdf'
 const About = () => {
+    const [modalOpen, setModalOpen] = useState<boolean>(false)
+
+    const openModal = () => {
+        setModalOpen(true)
+    }
+    const closeModal = () => {
+        setModalOpen(false)
+    }
 
     const downloadResume = (url: any) => {
         const file = url.split('/').pop()
@@ -34,9 +43,20 @@ const About = () => {
         download.click();
         document.body.removeChild(download);
     }
+    // onClick={() => downloadResume(RESUME_FILE_PDF)}
 
     return (
         <motion.div className='flex justify-center p-10 2xl:mb-20 ' id='About'>
+            <Modal showModal={modalOpen} onClose={closeModal}>
+                <div className='flex flex-col gap-8 '>
+                    <h1 className='font-semibold mx-auto text-xl'>Choose Type of CV You need!</h1>
+                    <h2>ATS Version is for CV which ATS friendly. And Creative version for creative CV with colors.</h2>
+                    <div className='flex flex-row justify-center items-center gap-4'>
+                        <button className="btn btn-outline btn-primary" onClick={() => downloadResume(RESUME_FILE_PDF)}>ATS version</button>
+                        <button className="btn btn-outline btn-primary" onClick={() => downloadResume(RESUM_CREATIVE_PDF)}>Creative Version</button>
+                    </div>
+                </div>
+            </Modal>
             <motion.div
                 initial="hidden"
                 whileInView="show"
@@ -63,11 +83,8 @@ const About = () => {
                     variants={FADE_DOWN_ANIMATION_VARIANTS}
                     className='text-center 2xl:text-3xl text-black font-bold dark:text-white'>Frontend Engineer</motion.h1>
                 <motion.button
-                    onClick={() => downloadResume(RESUME_FILE_PDF)}
                     variants={FADE_DOWN_ANIMATION_VARIANTS}
-                    whileHover={{
-                        scale: 1.1
-                    }}
+                    onClick={openModal}
                     className="btn btn-md w-52 mx-auto bg-blue-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-gradient-to-r dark:from-cyan-400 dark:to-blue-400 border-none "
                 >
                     <h1 className="dark:text-white text-lg flex items-center gap-2 ">
@@ -83,6 +100,7 @@ const About = () => {
                         </span>
                         Resume
                     </h1>
+
                 </motion.button>
                 <motion.div
                     className=' flex flex-col dark:text-white'>
