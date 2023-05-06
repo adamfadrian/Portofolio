@@ -43,7 +43,6 @@ const About = () => {
         download.click();
         document.body.removeChild(download);
     }
-    // onClick={() => downloadResume(RESUME_FILE_PDF)}
 
     return (
         <motion.div className='flex justify-center p-10 2xl:mb-20 ' id='About'>
