@@ -111,19 +111,25 @@ const Contact = () => {
                         ><ImLocation2 /> Jakarta, Indonesia</motion.h1>
                     </motion.div>
                     <motion.div animate={animation}>
-                        <form ref={form} onSubmit={sendEmail} className='flex flex-col mx-auto 2xl:w-[600px] gap-7 mb-20 p-5 dark:border-white border-color1 border rounded-lg'>
-                            <motion.h1 className='flex mx-auto text-2xl dark:text-white font-semibold mb-10'>Contact Form</motion.h1>
-                            <motion.div>
-                                <label className='ml-2 font-semibold text-lg text-black dark:text-white'>Your Name</label>
-                                <input className='input input-bordered input-success w-full max-w-xl ' required type="text" name="user_name" defaultValue='' placeholder='adam fadrian' />
+                        <form ref={form} onSubmit={sendEmail} className='flex flex-col mx-auto 2xl:w-[600px] gap-5 mb-20 p-5 dark:border-white border-color1 border rounded-lg'>
+                            <motion.h1 className='flex mx-auto text-2xl dark:text-white font-semibold 2xl:mb-10'>Contact Form</motion.h1>
+                            <motion.div className='flex gap-2'>
+                                <div>
+                                <label className=' font-semibold text-lg text-black dark:text-white '>Your Name</label>
+                                <input className='input input-bordered input-success w-full max-w-xl mt-1' required type="text" name="user_name" defaultValue='' placeholder='adam fadrian' />
+                                </div>
+                               <div>
+                               <label className=' font-semibold text-lg text-black dark:text-white'>Company Name</label>
+                                <input className='input input-bordered input-success w-full max-w-xl mt-1'  type="text" name="company_name" defaultValue='' placeholder='company name' />
+                               </div>
                             </motion.div>
                             <motion.div>
-                                <label className='ml-2 font-semibold text-lg text-black dark:text-white'>Your Email</label>
-                                <input className='input input-bordered input-success w-full max-w-xl ' required type="email" name="user_email" defaultValue='' placeholder='example@gmail.com' />
+                                <label className=' font-semibold text-lg text-black dark:text-white'>Your Email</label>
+                                <input className='input input-bordered input-success w-full max-w-xl mt-1' required type="email" name="user_email" defaultValue='' placeholder='example@gmail.com' />
                             </motion.div>
                             <motion.div className='flex flex-col'>
-                                <label className='ml-2 font-semibold text-lg text-black dark:text-white'>Message</label>
-                                <textarea className="textarea textarea-bordered textarea-lg w-full textarea-accent" required name="message" defaultValue='' placeholder='hello adam, ...' />
+                                <label className=' font-semibold text-lg text-black dark:text-white'>Message</label>
+                                <textarea className="textarea textarea-bordered textarea-lg w-full textarea-accent mt-1" required name="message" defaultValue='' placeholder='hello adam, ...' />
                             </motion.div>
                             <button
                                 disabled={loading}

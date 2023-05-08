@@ -22,40 +22,67 @@ const BOUNCING_ANIMATION_VARIANTS = {
         },
     },
 };
-const RESUME_FILE_PDF = 'http://localhost:3000/ATS.pdf'
-const RESUM_CREATIVE_PDF = 'http://localhost:3000/CREATIVE.pdf'
+
+const RESUME_FILE_PDF = 'http://localhost:3000/ATS.pdf';
+const RESUM_CREATIVE_PDF = 'http://localhost:3000/CREATIVE.pdf';
+
 const About = () => {
+
     const [modalOpen, setModalOpen] = useState<boolean>(false)
 
     const openModal = () => {
         setModalOpen(true)
-    }
+    };
     const closeModal = () => {
         setModalOpen(false)
-    }
+    };
 
     const downloadResume = (url: any) => {
-        const file = url.split('/').pop()
+        const file = url.split('/').pop();
         const download = document.createElement('a');
-        download.href = url
+        download.href = url;
         download.setAttribute('download', file);
         document.body.appendChild(download);
         download.click();
         document.body.removeChild(download);
-    }
+    };
 
     return (
         <motion.div className='flex justify-center p-10 2xl:mb-20 ' id='About'>
+            {/* Modal for resume */}
             <Modal showModal={modalOpen} onClose={closeModal}>
                 <div className='flex flex-col gap-8 '>
-                    <h1 className='font-semibold mx-auto text-xl'>Choose Type of CV You need!</h1>
-                    <h2>ATS Version is for CV which ATS friendly. And Creative version for creative CV with colors.</h2>
+                    <div className='gap-2 flex flex-col'>
+                        <h1 className='font-semibold mx-auto text-xl text-center'>Choose Type of CV You need!</h1>
+                        <h2 className='flex w-96 mx-auto text-center mt-2'>ATS Version is for CV which ATS friendly. And Creative version for creative CV with colors.</h2>
+                    </div>
                     <div className='flex flex-row justify-center items-center gap-4'>
-                        <button className="btn btn-outline btn-primary" onClick={() => downloadResume(RESUME_FILE_PDF)}>ATS version</button>
-                        <button className="btn btn-outline btn-primary" onClick={() => downloadResume(RESUM_CREATIVE_PDF)}>Creative Version</button>
+                        <button className="btn btn-outline text-white bg-blue-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-gradient-to-r dark:from-cyan-400 dark:to-blue-400 gap-1" onClick={() => downloadResume(RESUME_FILE_PDF)}>
+                            <span className="inline-block">
+                                <motion.span
+                                    variants={BOUNCING_ANIMATION_VARIANTS}
+                                    initial="initial"
+                                    animate="animate"
+                                    style={{ display: "inline-block", marginTop: '5px' }}
+                                >
+                                    <TbDownload size={20} />
+                                </motion.span>
+                            </span>ATS version</button>
+                        <button className="btn btn-outline text-white bg-blue-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-gradient-to-r dark:from-cyan-400 dark:to-blue-400 gap-1" onClick={() => downloadResume(RESUM_CREATIVE_PDF)}>
+                            <span className="inline-block">
+                                <motion.span
+                                    variants={BOUNCING_ANIMATION_VARIANTS}
+                                    initial="initial"
+                                    animate="animate"
+                                    style={{ display: "inline-block", marginTop: '5px' }}
+                                >
+                                    <TbDownload size={20} />
+                                </motion.span>
+                            </span>Creative Version</button>
                     </div>
                 </div>
             </Modal>
+            {/* modal End */}
             <motion.div
                 initial="hidden"
                 whileInView="show"
@@ -74,7 +101,6 @@ const About = () => {
                     whileHover={{
                         scale: 1.4,
                         transition: { duration: 0.3 },
-
                     }}
                     variants={FADE_DOWN_ANIMATION_VARIANTS}
                     className='text-center 2xl:text-5xl text-3xl text-black font-bold dark:text-white'>Adam Fadrian</motion.h1>
@@ -99,7 +125,6 @@ const About = () => {
                         </span>
                         Resume
                     </h1>
-
                 </motion.button>
                 <motion.div
                     className=' flex flex-col dark:text-white'>
@@ -123,7 +148,7 @@ const About = () => {
                         className='text-4xl font-semibold mx-auto mt-5 text-black dark:text-white'> About Me</motion.h1>
                     <motion.p
                         whileHover={{
-                            scale: 1.2,
+                            scale: 1.07,
                             transition: { duration: 0.4 },
                         }}
                         variants={FADE_DOWN_ANIMATION_VARIANTS}

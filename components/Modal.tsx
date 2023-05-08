@@ -25,7 +25,7 @@ const Modal: FC<Props> = ({ showModal = false, children, onClose }) => {
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-50 flex items-center justify-center m-2">
             <motion.div className="fixed inset-0 backdrop-blur-sm" onClick={handleOverlayClick}></motion.div>
-            <motion.div className="bg-white rounded-lg shadow-lg z-10 p-6">{children}</motion.div>
+            <motion.div className="bg-white  dark:border rounded-lg shadow-lg z-10 p-6">{children}</motion.div>
           </motion.div>
 
         )

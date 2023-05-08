@@ -47,17 +47,17 @@ const Projects = () => {
                             return (
                                 <motion.div
                                     whileHover={{
-                                        scale: 1.1
+                                        scale: 1.02
                                     }}
                                     animate={animation}
-                                    className=" max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-500 2xl:mb-20 p-5" key={i}>
-                                    <motion.a href="#">
+                                    className=" max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-500 2xl:mb-20 p-5 hover:cursor-pointer" key={i}>
+                                    <motion.a >
                                         <Image
-                                            className="rounded-t-lg max-h-52 w-full object-fit" src={item.image} alt="" />
+                                            className="rounded-t-lg max-h-52 w-full object-fit" src={item.image}  loading="lazy" alt="" />
                                     </motion.a>
                                     <motion.div
                                         className="p-5">
-                                        <motion.a href="#">
+                                        <motion.a >
                                             <motion.h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{item.name}</motion.h5>
                                         </motion.a>
                                         <motion.p

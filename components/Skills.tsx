@@ -39,7 +39,7 @@ const Skills = () => {
                         skills.map((data: any) => {
                             return (
                                 <motion.div
-                                    whileHover={{ scale: 1.5 }}
+                                    whileHover={{ scale: 1.3 }}
                                     animate={animation}
                                     className="bg-white rounded-lg shadow-lg py-2 flex flex-col justify-center text-center hover:cursor-pointer items-center dark:border dark:bg-transparent dark:border-white p-4" key={data.id}>
                                     <motion.h2 className="text-xl font-medium  text-black dark:text-white flex-wrap">{data.title}</motion.h2>
